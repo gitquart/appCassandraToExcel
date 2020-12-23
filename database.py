@@ -25,8 +25,8 @@ def getLargeQueryAndPrintToExcel(query):
         
     for row in session.execute(statement):
         ls=[]
-        for r in row:
-            ls.append(str(r))
+        for col in row:
+            ls.append(str(col))
         ws.append(ls)
         
     wb.save(dir_excel) 
