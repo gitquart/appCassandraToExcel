@@ -45,6 +45,7 @@ def main():
         query="select "+fieldsForQuery+" from "+table+" where period_number="+str(i)+""
         resultSet=bd.getLargeQuery(query)
 
+
     print('The excel is ready!')        
                          
             
