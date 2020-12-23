@@ -18,7 +18,8 @@ def main():
         os.mkdir('C:\\quartExcel')
     wb = Workbook()
     ws = wb.active
-    ws.title = "Impi1" 
+    title="Impi1" 
+    ws.title = title
     lsFields=[]
     #Get cassandra columns
     table='thesis.impi_docs'
@@ -43,7 +44,7 @@ def main():
         print('Printing excel... ')
         resultSet=''
         query="select "+fieldsForQuery+" from "+table+" where year>0 ALLOW FILTERING"
-        bd.getLargeQueryAndPrintToExcel(query,dir_excel)
+        bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
 
 
     print('The excel is ready!')        

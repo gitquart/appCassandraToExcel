@@ -17,13 +17,13 @@ def getCluster():
 
     return cluster
 
-def getLargeQueryAndPrintToExcel(query,dir_excel):
+def getLargeQueryAndPrintToExcel(query,dir_excel,title):
     cluster = getCluster()
     session = cluster.connect()
     session.default_timeout=70      
     statement = SimpleStatement(query, fetch_size=1000)
     wb = load_workbook(dir_excel)
-    ws = wb['Thesis']
+    ws = wb[title]
         
     for row in session.execute(statement):
         ls=[]
