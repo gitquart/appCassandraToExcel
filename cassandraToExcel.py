@@ -8,7 +8,7 @@ import os
 import database as bd
 
 
-dir_excel='C:\\quartExcel\\impi1.xlsx'
+dir_excel='C:\\quartExcel\\impi2.xlsx'
 current_dir = os.getcwd()
 
 def main():
@@ -18,12 +18,12 @@ def main():
         os.mkdir('C:\\quartExcel')
     wb = Workbook()
     ws = wb.active
-    title="Impi1" 
+    title="Impi2" 
     ws.title = title
     lsFields=[]
     #Get cassandra columns
-    table='thesis.impi_docs'
-    query="select column_name from system_schema.columns WHERE keyspace_name = 'thesis' AND table_name = 'impi_docs';"
+    table='thesis.impi_docs_master'
+    query="select column_name from system_schema.columns WHERE keyspace_name = 'thesis' AND table_name = 'impi_docs_master';"
     columns_list=''
     columns_list=bd.getShortQuery(query)
     coln=1
