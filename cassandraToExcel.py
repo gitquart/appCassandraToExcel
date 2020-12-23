@@ -12,6 +12,7 @@ objControl= cInternalControl()
 dir_excel=objControl.excel_dir+objControl.excel_file
 
 def main():
+    print('Starting process, please stand by...')
     dexist=False
     dexist=os.path.exists(objControl.excel_dir)
     if dexist==False:
