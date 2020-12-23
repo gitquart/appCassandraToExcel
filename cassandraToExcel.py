@@ -43,7 +43,7 @@ def main():
     if flag:
         #Expedient xls already exists
         print('Printing excel... ')
-        query="select "+fieldsForQuery+" from "+table+" where year>0 ALLOW FILTERING"
+        query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year>0 ALLOW FILTERING"
         bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
 
 
