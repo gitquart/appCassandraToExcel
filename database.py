@@ -15,7 +15,7 @@ def getCluster():
 
     return cluster
 
-def getLargeQueryAndPrintToExcel(query):
+def getLargeQueryAndPrintToExcel(query,dir_excel):
     cluster = getCluster()
     session = cluster.connect()
     session.default_timeout=70      
