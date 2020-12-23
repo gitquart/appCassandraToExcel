@@ -43,7 +43,7 @@ def main():
         print('Printing excel... ')
         resultSet=''
         query="select "+fieldsForQuery+" from "+table+" where period_number="+str(i)+""
-        resultSet=bd.getLargeQuery(query)
+        bd.getLargeQueryAndPrintToExcel(query)
 
 
     print('The excel is ready!')        

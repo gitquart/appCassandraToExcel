@@ -15,7 +15,7 @@ def getCluster():
 
     return cluster
 
-def getLargeQuery():
+def getLargeQueryAndPrintToExcel(query):
     cluster = getCluster()
     session = cluster.connect()
     session.default_timeout=70      
@@ -31,9 +31,6 @@ def getLargeQuery():
         
     wb.save(dir_excel) 
     cluster.shutdown() 
-    res=''
-                                 
-    return res
 
 
 def getShortQuery(query):
