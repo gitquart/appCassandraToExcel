@@ -42,7 +42,7 @@ def main():
         #Expedient xls already exists
         print('Printing excel... ')
         resultSet=''
-        query="select "+fieldsForQuery+" from "+table+" where period_number="+str(i)+""
+        query="select "+fieldsForQuery+" from "+table+" where year>0 ALLOW FILTERING"
         bd.getLargeQueryAndPrintToExcel(query,dir_excel)
 
 

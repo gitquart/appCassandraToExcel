@@ -1,6 +1,8 @@
 from cassandra.cluster import Cluster
 from cassandra.auth import PlainTextAuthProvider
 from cassandra.query import SimpleStatement
+from openpyxl import Workbook
+from openpyxl import load_workbook
 
 cloud_config= {
         'secure_connect_bundle':'secure-connect-dbquart.zip'
