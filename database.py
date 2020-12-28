@@ -3,9 +3,11 @@ from cassandra.auth import PlainTextAuthProvider
 from cassandra.query import SimpleStatement
 from openpyxl import Workbook
 from openpyxl import load_workbook
+from InternalControl import cInternalControl
 
+objControl= cInternalControl()
 cloud_config= {
-        'secure_connect_bundle':'secure-connect-dbquart.zip'
+        'secure_connect_bundle':'secure-connect-'+objControl.db+'.zip'
     }
 
 

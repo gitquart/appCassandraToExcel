@@ -4,3 +4,4 @@ class cInternalControl:
     excel_sheet='main'
     keyspace='thesis'
     table='impi_docs_master'
+    db='dbquart'
