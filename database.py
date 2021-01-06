@@ -14,7 +14,16 @@ cloud_config= {
 def getCluster():
     #Connect to Cassandra
     objCC=CassandraConnection()
-    auth_provider = PlainTextAuthProvider(objCC.cc_user,objCC.cc_pwd)
+    user=''
+    password=''
+    if objControl.db=='dbquart':
+        user=objCC.cc_user
+        password=objCC.cc_pwd
+    else:
+        user=objCC.cc_user_test
+        password=objCC.cc_pwd_test
+
+    auth_provider = PlainTextAuthProvider(user,password)
     cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
 
     return cluster
@@ -55,12 +64,9 @@ def getShortQuery(query):
 
         
 
-        
-
-
-    
+     
 class CassandraConnection():
     cc_user='quartadmin'
-    cc_keyspace='thesis'
     cc_pwd='P@ssw0rd33'
-    cc_databaseID='9de16523-0e36-4ff0-b388-44e8d0b1581f'
+    cc_user_test='test'
+    cc_pwd_test='testquart'
