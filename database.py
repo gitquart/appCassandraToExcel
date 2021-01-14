@@ -35,10 +35,8 @@ def getLargeQueryAndPrintToExcel(query,dir_excel,title):
     statement = SimpleStatement(query, fetch_size=1000)
     wb = load_workbook(dir_excel)
     ws = wb[title]
-    count_row=0
         
     for row in session.execute(statement):
-        count_row+=1
         ls=[]
         for col in row:
             ls.append(str(col))
