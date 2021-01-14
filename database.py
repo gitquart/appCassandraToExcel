@@ -41,10 +41,23 @@ def getLargeQueryAndPrintToExcel(query,dir_excel,title):
         for col in row:
             ls.append(str(col))
         ws.append(ls)
-        
-    print('Total rows:',str(count_row))    
+           
     wb.save(dir_excel) 
     cluster.shutdown() 
+
+def getLargeQuery(query):
+    cluster = getCluster()
+    session = cluster.connect()
+    session.default_timeout=70     
+    statement = SimpleStatement(query, fetch_size=1000)
+    count=0
+    print('Start count...')
+    for row in session.execute(statement):
+        count+=1
+        
+    print('Total rows:',str(count))        
+    cluster.shutdown()     
+
 
 
 def getShortQuery(query):
