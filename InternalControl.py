@@ -1,7 +1,7 @@
 class cInternalControl:
     excel_dir='C:\\quartExcel\\' 
-    excel_file='thesis_all.xlsx' 
+    excel_file='impi2_2019.xlsx' 
     excel_sheet='main'
     keyspace='thesis'
-    table='tbthesis'
+    table='impi_docs_master'
     db='dbquart'

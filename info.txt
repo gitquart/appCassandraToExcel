@@ -1,1 +1,3 @@
-This code works can turn any table to excel file, just change some values like name of file, table, etc
+-This code works can turn any table to excel file, just change some values like name of file, table, etc
+-Verify that you are looking by a field in query (ex: year) and year is an index on database,
+otherwise the query will retrieve much less records.
