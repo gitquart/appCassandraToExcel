@@ -5,3 +5,4 @@ class cInternalControl:
     keyspace='thesis'
     table='impi_docs_masters'
     db='dbquart'
+    iterar=True

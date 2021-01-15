@@ -44,8 +44,15 @@ def main():
     if flag:
         #Expedient xls already exists
         print('Printing excel... ')
-        query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year>0 ALLOW FILTERING "
-        bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
+        if not objControl.iterar:
+            query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year>=0 ALLOW FILTERING "
+            bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
+        else:
+            lsCondicion=['2015','2016','2017','2018','2019','2020']    
+            for condicion in lsCondicion:
+                query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year="+str(condicion)+" ALLOW FILTERING "
+                bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
+
 
 
     print('The excel is ready!')        
