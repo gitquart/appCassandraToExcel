@@ -63,7 +63,7 @@ def main():
             lsCondicion=['2015','2016','2017','2018','2019','2020']    
             for condicion in lsCondicion:
                 query="select "+fieldsForQuery+"  from "+keyspace+"."+table+" where year="+str(condicion)+" ALLOW FILTERING "
-                bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
+                bd.getLargeQueryAndPrintToExcel_Special(query,dir_excel,title)
 
 
 

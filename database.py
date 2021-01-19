@@ -28,6 +28,8 @@ def getCluster():
 
     return cluster
 
+#getLargeQueryAndPrintToExcel
+#Prints normal query in an spreadsheet
 def getLargeQueryAndPrintToExcel(query,dir_excel,title):
     cluster = getCluster()
     session = cluster.connect()
@@ -35,7 +37,7 @@ def getLargeQueryAndPrintToExcel(query,dir_excel,title):
     statement = SimpleStatement(query, fetch_size=1000)
     wb = load_workbook(dir_excel)
     ws = wb[title]
-        
+    
     for row in session.execute(statement):
         ls=[]
         for col in row:
@@ -44,6 +46,41 @@ def getLargeQueryAndPrintToExcel(query,dir_excel,title):
            
     wb.save(dir_excel) 
     cluster.shutdown() 
+
+#getLargeQueryAndPrintToExcel_Special
+#Prints a query in spreadsheet by special conditions
+def getLargeQueryAndPrintToExcel_Special(query,dir_excel,title):
+    cluster = getCluster()
+    session = cluster.connect()
+    session.default_timeout=70     
+    statement = SimpleStatement(query, fetch_size=1000)
+    wb = load_workbook(dir_excel)
+    ws = wb[title]
+    
+    for row in session.execute(statement):
+        ls=[]
+        coln=1
+        for col in row:
+            #Case for cip , position 1
+            if coln==1:
+                if col!='':
+                    chunks=str(col).split(';')
+                    if len(chunks)>0:
+                        lsPart=[]
+                        for item in chunks:
+                            strParts=item.strip()
+                            lsPart.append(strParts[0])
+                        col=';'.join(lsPart)    
+                    else:
+                        strParts=col.split()
+                        col=strParts[0]        
+            ls.append(str(col))
+            coln+=1
+        ws.append(ls)
+           
+    wb.save(dir_excel) 
+    cluster.shutdown() 
+
 
 def getLargeQuery(query):
     cluster = getCluster()
