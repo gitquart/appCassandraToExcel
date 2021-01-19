@@ -25,16 +25,28 @@ def main():
     #Get cassandra columns
     keyspace=objControl.keyspace
     table=objControl.table
-    query="select column_name from system_schema.columns WHERE keyspace_name = '"+keyspace+"' AND table_name = '"+table+"';"
-    columns_list=''
-    columns_list=bd.getShortQuery(query)
+    columns_list=[]
+    if objControl.todosCampos:
+        query="select column_name from system_schema.columns WHERE keyspace_name = '"+keyspace+"' AND table_name = '"+table+"';"
+        columns_list=bd.getShortQuery(query)
+    else:
+        columns_list.append('cip')
+        columns_list.append('cpc')
+        columns_list.append('id')
+        columns_list.append('sample')
+        columns_list.append('year')
+
     coln=1
     for col in columns_list:
         #Write(row,column)
         #Headers (h1,...)
         h1 = ws.cell(row = 1, column = coln)
-        h1.value = col[0]
-        lsFields.append(col[0])
+        if objControl.todosCampos:
+            h1.value = col[0]
+            lsFields.append(col[0])
+        else:
+            h1.value = col
+            lsFields.append(col)
         coln=coln+1
         wb.save(dir_excel) 
     #Reading list of fields into commas for the next query
@@ -45,12 +57,12 @@ def main():
         #Expedient xls already exists
         print('Printing excel... ')
         if not objControl.iterar:
-            query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year>=0 ALLOW FILTERING "
+            query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year>0 ALLOW FILTERING "
             bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
         else:
             lsCondicion=['2015','2016','2017','2018','2019','2020']    
             for condicion in lsCondicion:
-                query="select "+fieldsForQuery+" from "+keyspace+"."+table+" where year="+str(condicion)+" ALLOW FILTERING "
+                query="select "+fieldsForQuery+"  from "+keyspace+"."+table+" where year="+str(condicion)+" ALLOW FILTERING "
                 bd.getLargeQueryAndPrintToExcel(query,dir_excel,title)
 
 

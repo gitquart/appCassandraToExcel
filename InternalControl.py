@@ -6,3 +6,4 @@ class cInternalControl:
     table='impi_docs_masters'
     db='dbquart'
     iterar=True
+    todosCampos=False
