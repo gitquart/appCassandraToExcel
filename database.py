@@ -17,8 +17,8 @@ def getCluster():
     user=''
     password=''
     if objControl.db=='dbquart':
-        user=objCC.cc_user
-        password=objCC.cc_pwd
+        user=objCC.cc_user_dbquart
+        password=objCC.cc_pwd_dbquart
     else:
         user=objCC.cc_user_test
         password=objCC.cc_pwd_test

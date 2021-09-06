@@ -1,9 +1,9 @@
 class cInternalControl:
     excel_dir='C:\\quartExcel\\' 
-    excel_file='impi2_test.xlsx' 
+    excel_file='tbThesis_6_sep_2021_10_PERIOD.xlsx' 
     excel_sheet='main'
     keyspace='thesis'
-    table='impi_docs_masters'
+    table='tbthesis'
     db='dbquart'
-    iterar=True
-    todosCampos=False
+    iterar=False
+    todosCampos=True
