@@ -7,7 +7,7 @@ from InternalControl import cInternalControl
 
 objControl= cInternalControl()
 cloud_config= {
-        'secure_connect_bundle':'secure-connect-'+objControl.db+'.zip'
+        'secure_connect_bundle':'secure-connect-'+objControl.db+'_serverless.zip'
     }
 
 
@@ -114,7 +114,7 @@ def getShortQuery(query):
 
      
 class CassandraConnection():
-    cc_user='quartadmin'
-    cc_pwd='P@ssw0rd33'
-    cc_user_test='test'
-    cc_pwd_test='testquart'
+    cc_user_test='MpvtYRWPigKTDLxfcZMNIfYQ'
+    cc_pwd_test='joFIPwAoFL_JWNsgAr,xTNf30gZpZu3Fg6,eMxQjKxm-Gz5Uva2R.ELwwzj88f4XPePGhXLWU89xzzP8a1BdgSpwLN+iPHhQpjRmXnvA-cbmvoK_In8Sr,MGadqF+TAh'
+    cc_user_dbquart='psXzplCMoTnTjWLSeAblXSkr'
+    cc_pwd_dbquart='_vGwtwEUsOxj9ZuSbm6SOJhyQOsU-s9QEzX7ZWZcRYKeew9sOqPeFmKr-pDzsIoisiF8aInS1HjSs7_fqZ9EZaMS96TNCwn_yReyjZvHuys+_fGSBuHKZz_+NTj6Z6L0'

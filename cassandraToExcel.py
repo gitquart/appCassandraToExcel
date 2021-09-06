@@ -30,6 +30,7 @@ def main():
         query="select column_name from system_schema.columns WHERE keyspace_name = '"+keyspace+"' AND table_name = '"+table+"';"
         columns_list=bd.getShortQuery(query)
     else:
+        #Customize fields, this option works when ALL FIELDS ARE NOT WANTED
         columns_list.append('cip')
         columns_list.append('cpc')
         columns_list.append('id')
